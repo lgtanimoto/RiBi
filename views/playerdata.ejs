@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>RiskIt or Biscit</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+
+</head>
+<body>
+<h1>RiskIt or BiscIt Player Data</h1>
+
+        <div class="container">
+            <div class="row"><p> </p></div>
+            <div class="row">
+                <div class="col-md-2 col-sm-6 game-label">Player Name: </div>
+                <div class="col-md-2 col-sm-6 game-field"><%= r_player.playername %></div>
+                <div class="col-md-2 col-sm-6 game-label">Games Played: </div>
+                <div class="col-md-2 col-sm-6 game-field"><%= r_gamesplayed %></div>
+                <div class="col-md-2 col-sm-6 game-label">Game Avg: </div>
+                <div class="col-md-2 col-sm-6 game-field">$ <%= Math.round(r_average) %></div>
+            </div>
+ 
+        </div>
+
+    <div class="container">
+        <div class="row"><div class="col-12">Previous Games</div></div>
+        <div class="row">
+            <div class="col-md-2 game-label">Game</div>
+            <div class="col-md-4 game-label">Date</div>
+            <div class="col-md-2 game-label">Case Amt</div>
+            <div class="col-md-2 game-label">Amt Won</div>
+            <div class="col-md-2 game-label">Cases Viewed</div>
+        </div>
+        <% for (let ix = r_docs.length - 1; ix >= 0; ix--) {          %>
+            <div class="row">
+                <div class="col-md-2 game-field"><%= r_docs[ix].gameNo %></div>
+                <div class="col-md-4 game-field"><%= r_docs[ix].gameDate.toLocaleString() %></div>
+                <div class="col-md-2 game-field">$ <%= r_docs[ix].caseAmount %></div>
+                <div class="col-md-2 game-field">$ <%= r_docs[ix].amountWon %></div>
+                <div class="col-md-2 game-field"><%= r_docs[ix].casesSeen %></div>
+            </div>
+        <% }                                                          %>
+        <div class="row"><p> </p></div>
+        <form>
+            <div class="row">
+                <button id="playerdata" type="submit" formaction="/gamedata/player" formmethod="post" disabled=true class="btn btn-primary col-4">Player Data</button>
+                <button id="highscores" type="submit" formaction="/gamedata/high" formmethod="post" class="btn btn-primary col-4">High Scores</button>
+                <button id="playagain" type="submit" formaction="/gamestart" formmethod="post" class="btn btn-success col-4">RiskIt or BiscIt again?</button>
+            </div>
+        </form>
+   </div>
+
+
+<%- include('partials/footer') %>
