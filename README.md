@@ -8,3 +8,12 @@ Similar to "Deal or No Deal" the player must choose 1 of 26 cases containing an 
 For more information on "Deal or No Deal", see https://en.wikipedia.org/wiki/Deal_or_No_Deal
 
 Beyond the basics of "Deal or No Deal", the game provides tracking of the players performance across multiple games and how well the player did relative to other players. Ideally, this RiskIt or BiscIt (aka RiBi) can be used as a "fitness app" to help players better think statistically/probabilistically, think about lomg-term vs short-term optimization stategies, and better understand the difference between skill and luck.
+
+The current version is extremely limited - a v0.1 release - for author to learn full-stack technologies.   Some things to work on for the next release (v0.2 date TBD) are as follows:
+
+- Support for multiple users using RiBi at the same time
+- Much. much better UI including use of React and Jquery.  (JQuery not really necessary in this iteration)
+- Additional reports on high score on first game, within first 5 games, highest average after first 5 games, highest average after first 25 games, highest overall average 
+- Logging for more initial profile questions, reflection on each game, logging for each individual stage before riskit/biscit is asked
+- Support for Passport/Oauth
+- Learn how to use GitHub with Herokuapp more effectively
